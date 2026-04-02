@@ -44,20 +44,20 @@ Provide a brief outline/overview of the steps involved in a supervised machine l
 ::: {.callout-tip icon="false"}
 ## Solution
 
-1. Check data for quality, size and missingness. Examine the distribution of the target variable. Tidy data if needed, including making the appropriate transformations. Decide if it's a classification or regression problem.
-2. Decide on an appropriate splitting ratio and split the tidied data into the training and testing split. Use stratified samling if needed. 
-3. Decide on the number of folds and repeats and perform cross validation. 
-4. Perform exploratory data analysis on the training data or a portion of the training data. Uncover relationships that could be used in feature engineering and constructing a recipe. 
-5. Create a baseline recipe that allows the model to run. 
-6. Decide on a performance metric. 
-7. Create a null model and fit the null model using the baseline recipe. 
-8. Decide on other model types to fit and create workflows.
-9. Create a more complex recipe using findings from EDA. 
-10. Fit the new models. 
-11. Perform hyperparameter tuning and find the optimal parameters. 
-12. Evaluate models based on performance metric. Find the best performing model. 
-13. Fit the best performing model on the entire training data.
-14. Fit model on testing data and evaluate performance. 
+1. Data understanding and quality check: Inspect size, structure, missingness, and data types. Examine target variable distribution. Determine problem type (classification vs regression)
+2. Data cleaning and preprocessing setup: Tidy data, handle missing values, encode variables if needed.
+3. Create training and testing split - Use stratified sampling if the outcome is imbalanced.
+4. Resampling strategy: Choose cross-validation strategy (e.g. v-fold cross validation).
+5. Exploratory Data Analysis (EDA): Conduct EDA on training data. Identify patterns to inform feature engineering.
+6. Define preprocessing recipes: Create a baseline recipe (minimal preprocessing) and an engineered/complex recipe based on EDA.
+7. Choose evaluation metrics
+8. Establish baseline model and fit a null model for comparison.
+9. Model selection and workflows: Combine models and recipes into workflow.
+10. Model training and tuning: Train models using resampling. Perform hyperparameter tuning where applicable.
+11. Model comparison: Compare models using chosen metric.
+12. Select best-performing model
+13. Final model fitting: Fit best model on full training data.
+14. Test set evaluation: Evaluate final model on held-out test set and report final performance.
 
 :::
 
@@ -68,9 +68,9 @@ Explain the difference between supervised and unsupervised learning.
 ::: {.callout-tip icon="false"}
 ## Solution
 
-Supervised learning uses labeled training data to predict outcomes or classify information whereas unsupervised learning uses unlabeled data to identify hidden patterns, structures or groups. 
-In unsupervised learning, we do not have a target variable. We want to understand the structure in all of the data. We do not have an outcome that supervises the process that we filter the data through. 
-Supervised learning has a target variable that we use to supervise the data. 
+Supervised learning uses labeled training data, meaning that each observation includes both input features and a known outcome target variable. The goal is to learn a relationship between the inputs and the target so that the model can predict outcomes for unseen data. 
+
+In unsupervised learning, we do not have a target variable. Instead of predicting an outcome, the goal is to uncover underlying patterns, structures, or groupings within the data. Because there is no outcome guiding the process, the model explores the structure of the data. 
 
 :::
 
@@ -92,7 +92,7 @@ Descriptive models summarize and present data to explain what has happened and h
 ::: {.callout-tip icon="false"}
 ## Solution
 
-Trying to explain the "how" and "why" from a data. Understand what inputs predict the outcome. 
+Inferential models help us explain the "how" and "why" from data. Rather than focusing on prediction, they aim to estimate parameters and test hypotheses, and the goal is interpretation and insight, not only accuracy. 
 
 :::
 
@@ -101,7 +101,7 @@ Trying to explain the "how" and "why" from a data. Understand what inputs predic
 ::: {.callout-tip icon="false"}
 ## Solution
 
-Goal is to hit the target as best as we can and get a good prediction. 
+Predictive models are designed to accurately predict outcomes for new, unseen data. They focus on maximizing prediction performance rather than interpreting relationships between variables. The goal is to make the best possible predictions, and this is often done using flexible or complex models.
 
 :::
 
@@ -116,7 +116,7 @@ What does it mean to be a mechanistic model?
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+A mechanistic model is built based on known underlying processes about how a system works. Instead of learning patterns purely from data, it uses predefined relationships that are often expressed through equations that reflect real-world mechanisms. The goal is usually to model why something happens. 
 
 :::
 
@@ -127,7 +127,7 @@ What does it mean to be an empirically driven model?
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+An empirically driven model is built primarily from observed data rather than predefined theories or known mechanisms. It identifies patterns and relationships directly from the data, without relying on assumptions about how the system works. The focus is on accurately capturing trends and making predictions.
 
 :::
 
@@ -138,7 +138,7 @@ How does the mechanistic and empirically driven model terminology relate to the 
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+Mechanistic vs empirically driven desrcibes the source of the knowledge (how the model is developed), whereas parametric vs nonparametric describes the mathematical structure (how flexible the model is). Mechanistic models are often parametric because they assume a specific functional form based on theory. In contrast, empirically driven models are often nonparametric because they rely more on the data to learn flexible patterns without imposing a strong predefined structure. However, some empirically driven models can still be parametric, and not all parametric models have to be mechanistic.
 
 :::
 
@@ -149,7 +149,7 @@ In general, is a mechanistic or empirically driven model easier to interpret? Ex
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+In general, mechanistic models are easier to interpret because they are based on known theories or relationships. This makes it easy to understand how changes in inputs affect the outcome. In contrast, empirically driven models often prioritize predictive accuracy and relationships can be harder to interpret. 
 
 :::
 
@@ -160,7 +160,7 @@ How does mechanistic and empirically driven model terminology relate to the idea
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+Mechanistic and empirically driven models are different when it comes to their level of flexibility. Mechanistic models are generally less flexible because they impose a specific structure based on known relationships in the data. This limits how much the model can adapt to patterns in the data. In contrast, empirically driven models are more flexible because they rely on the data to learn patterns, allowing them to capture nonlinear relationships. This can also improve their predictive performance. 
 
 :::
 
@@ -171,8 +171,7 @@ Describe the bias-variance trade-off when considering the use of a mechanistic o
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
-
+Mechanistic models usually have higher bias and lower variance because they impose a fixed structure. This can lead to underfitting if the true relationship is more complex than the model allows. Empirically driven models tend to have lower bias and higher variance because they are more flexible and can adapt closely to the data. This allows them to capture complex patterns, but it also increases the risk of overfitting.
 :::
 
 ### Question 5 
@@ -182,7 +181,9 @@ Explain the difference between a regression and classification machine learning 
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+A regression machine learning problem produces a continuous numerical variable as the outcome such as price or temperature. The goal is to estimate a value along a continuous scale. 
+
+A classification machine learning problem is used to predict a categorical outcome such as yes or no, and the goal is to assign observations to one of a set of discrete classes. 
 
 :::
 
@@ -193,7 +194,7 @@ When splitting the data, why is it useful to stratify by the outcome/target vari
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+Stratifying by the outcome variable ensures that the distribution of the outcome variable is similar in both the training and testing sets. This is especially important if the data is imbalanced. Stratifying allows the model to be trained and evaluated on data that is more representative of the overall dataset, leading to more reliable results. 
 
 :::
 
@@ -204,7 +205,9 @@ Briefly describe how v-fold cross validation with repeats is used to estimate te
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+In v-fold cross validation with repeats, the training data is split into v folds. The model is trained on v − 1 folds and validated on the remaining fold, and this process is repeated until each fold has served as the validation set. The RMSE is calculated for each fold, and then averaged across all folds. With repeats, this entire process is performed multiple times with different random splits, and the RMSE values are averaged again. 
+
+We use this approach to get a reliable estimate of the of the test RMSE before fitting the model to the actual testing data. It reduces the variability from any single split, meaning that it allows us to show that our results are not due to just one lucky split, and provides a better approximation of how the model will perform on unseen data. 
 
 :::
 
@@ -215,7 +218,7 @@ When might we use a bootstrap resampling procedure instead of v-fold cross valid
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+We might use a bootstrap resampling procedure instead of v-fold cross-validation when the dataset is small and we want to make more efficient use of the available data. It is also useful when we want to estimate the variability of the model’s performance, since it produces a distribution of RMSE values rather than a single average.
 
 :::
 
@@ -226,7 +229,7 @@ Briefly describe model tuning and why we use it.
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+Model tuning is the process of selecting the best values for a model’s hyperparameters by evaluating its performance across different combinations. We use it to improve model performance, since the choice of hyperparameters can significantly affect how well the model fits to the data and performs on unseen data. 
 
 :::
 
@@ -237,7 +240,8 @@ What are two common performance metrics when dealing with a regression ML proble
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+- Root Mean Squared Error (RMSE): Measures the average size of prediction errors, with larger errors penalized more heavily. Lower RMSE indicates better model performance.
+- Mean Absolute Error (MAE): Measures the average absolute difference between predicted and actual values.
 
 :::
 
@@ -246,7 +250,8 @@ What are two common performance metrics when dealing with a classification ML pr
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+- Accuracy: The proportion of correct predictions out of all observations. It is easy to interpret but can be misleading when classes are imbalanced.
+- ROC AUC: Measures how well the model distinguishes between classes across different thresholds. It is especially useful when dealing with imbalanced datasets.
 
 :::
 
@@ -261,7 +266,7 @@ A company with a subscription based service (for example Netflix, Disney+, New Y
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+This question is inferential. The goal is to understand whether the number of service calls has an impact on the likelihood of churn. 
 
 :::
 
@@ -270,7 +275,7 @@ YOUR SOLUTION HERE
 ::: {.callout-tip icon="false"}
 ## Solution
 
-YOUR SOLUTION HERE
+This question is predictive. The goal is to estimate the probability that a customer will churn in the next month using available features and the goal is accurately predicting the outcome for each customer. 
 
 :::
 

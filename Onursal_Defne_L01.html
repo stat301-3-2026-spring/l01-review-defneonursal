@@ -2275,20 +2275,20 @@ vertical-align: -.125em;
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Check data for quality, size and missingness. Examine the distribution of the target variable. Tidy data if needed, including making the appropriate transformations. Decide if it’s a classification or regression problem.</li>
-<li>Decide on an appropriate splitting ratio and split the tidied data into the training and testing split. Use stratified samling if needed.</li>
-<li>Decide on the number of folds and repeats and perform cross validation.</li>
-<li>Perform exploratory data analysis on the training data or a portion of the training data. Uncover relationships that could be used in feature engineering and constructing a recipe.</li>
-<li>Create a baseline recipe that allows the model to run.</li>
-<li>Decide on a performance metric.</li>
-<li>Create a null model and fit the null model using the baseline recipe.</li>
-<li>Decide on other model types to fit and create workflows.</li>
-<li>Create a more complex recipe using findings from EDA.</li>
-<li>Fit the new models.</li>
-<li>Perform hyperparameter tuning and find the optimal parameters.</li>
-<li>Evaluate models based on performance metric. Find the best performing model.</li>
-<li>Fit the best performing model on the entire training data.</li>
-<li>Fit model on testing data and evaluate performance.</li>
+<li>Data understanding and quality check: Inspect size, structure, missingness, and data types. Examine target variable distribution. Determine problem type (classification vs regression)</li>
+<li>Data cleaning and preprocessing setup: Tidy data, handle missing values, encode variables if needed.</li>
+<li>Create training and testing split - Use stratified sampling if the outcome is imbalanced.</li>
+<li>Resampling strategy: Choose cross-validation strategy (e.g. v-fold cross validation).</li>
+<li>Exploratory Data Analysis (EDA): Conduct EDA on training data. Identify patterns to inform feature engineering.</li>
+<li>Define preprocessing recipes: Create a baseline recipe (minimal preprocessing) and an engineered/complex recipe based on EDA.</li>
+<li>Choose evaluation metrics</li>
+<li>Establish baseline model and fit a null model for comparison.</li>
+<li>Model selection and workflows: Combine models and recipes into workflow.</li>
+<li>Model training and tuning: Train models using resampling. Perform hyperparameter tuning where applicable.</li>
+<li>Model comparison: Compare models using chosen metric.</li>
+<li>Select best-performing model</li>
+<li>Final model fitting: Fit best model on full training data.</li>
+<li>Test set evaluation: Evaluate final model on held-out test set and report final performance.</li>
 </ol>
 </div>
 </div>
@@ -2306,7 +2306,8 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Supervised learning uses labeled training data to predict outcomes or classify information whereas unsupervised learning uses unlabeled data to identify hidden patterns, structures or groups. In unsupervised learning, we do not have a target variable. We want to understand the structure in all of the data. We do not have an outcome that supervises the process that we filter the data through. Supervised learning has a target variable that we use to supervise the data.</p>
+<p>Supervised learning uses labeled training data, meaning that each observation includes both input features and a known outcome target variable. The goal is to learn a relationship between the inputs and the target so that the model can predict outcomes for unseen data.</p>
+<p>In unsupervised learning, we do not have a target variable. Instead of predicting an outcome, the goal is to uncover underlying patterns, structures, or groupings within the data. Because there is no outcome guiding the process, the model explores the structure of the data.</p>
 </div>
 </div>
 </section>
@@ -2341,7 +2342,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Trying to explain the “how” and “why” from a data. Understand what inputs predict the outcome.</p>
+<p>Inferential models help us explain the “how” and “why” from data. Rather than focusing on prediction, they aim to estimate parameters and test hypotheses, and the goal is interpretation and insight, not only accuracy.</p>
 </div>
 </div>
 </section>
@@ -2357,7 +2358,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Goal is to hit the target as best as we can and get a good prediction.</p>
+<p>Predictive models are designed to accurately predict outcomes for new, unseen data. They focus on maximizing prediction performance rather than interpreting relationships between variables. The goal is to make the best possible predictions, and this is often done using flexible or complex models.</p>
 </div>
 </div>
 </section>
@@ -2378,7 +2379,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>A mechanistic model is built based on known underlying processes about how a system works. Instead of learning patterns purely from data, it uses predefined relationships that are often expressed through equations that reflect real-world mechanisms. The goal is usually to model why something happens.</p>
 </div>
 </div>
 </section>
@@ -2395,7 +2396,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>An empirically driven model is built primarily from observed data rather than predefined theories or known mechanisms. It identifies patterns and relationships directly from the data, without relying on assumptions about how the system works. The focus is on accurately capturing trends and making predictions.</p>
 </div>
 </div>
 </section>
@@ -2412,7 +2413,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>Mechanistic vs empirically driven desrcibes the source of the knowledge (how the model is developed), whereas parametric vs nonparametric describes the mathematical structure (how flexible the model is). Mechanistic models are often parametric because they assume a specific functional form based on theory. In contrast, empirically driven models are often nonparametric because they rely more on the data to learn flexible patterns without imposing a strong predefined structure. However, some empirically driven models can still be parametric, and not all parametric models have to be mechanistic.</p>
 </div>
 </div>
 </section>
@@ -2429,7 +2430,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>In general, mechanistic models are easier to interpret because they are based on known theories or relationships. This makes it easy to understand how changes in inputs affect the outcome. In contrast, empirically driven models often prioritize predictive accuracy and relationships can be harder to interpret.</p>
 </div>
 </div>
 </section>
@@ -2446,7 +2447,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>Mechanistic and empirically driven models are different when it comes to their level of flexibility. Mechanistic models are generally less flexible because they impose a specific structure based on known relationships in the data. This limits how much the model can adapt to patterns in the data. In contrast, empirically driven models are more flexible because they rely on the data to learn patterns, allowing them to capture nonlinear relationships. This can also improve their predictive performance.</p>
 </div>
 </div>
 </section>
@@ -2463,7 +2464,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>Mechanistic models usually have higher bias and lower variance because they impose a fixed structure. This can lead to underfitting if the true relationship is more complex than the model allows. Empirically driven models tend to have lower bias and higher variance because they are more flexible and can adapt closely to the data. This allows them to capture complex patterns, but it also increases the risk of overfitting.</p>
 </div>
 </div>
 </section>
@@ -2481,7 +2482,8 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>A regression machine learning problem produces a continuous numerical variable as the outcome such as price or temperature. The goal is to estimate a value along a continuous scale.</p>
+<p>A classification machine learning problem is used to predict a categorical outcome such as yes or no, and the goal is to assign observations to one of a set of discrete classes.</p>
 </div>
 </div>
 </section>
@@ -2498,7 +2500,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>Stratifying by the outcome variable ensures that the distribution of the outcome variable is similar in both the training and testing sets. This is especially important if the data is imbalanced. Stratifying allows the model to be trained and evaluated on data that is more representative of the overall dataset, leading to more reliable results.</p>
 </div>
 </div>
 </section>
@@ -2515,7 +2517,8 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>In v-fold cross validation with repeats, the training data is split into v folds. The model is trained on v − 1 folds and validated on the remaining fold, and this process is repeated until each fold has served as the validation set. The RMSE is calculated for each fold, and then averaged across all folds. With repeats, this entire process is performed multiple times with different random splits, and the RMSE values are averaged again.</p>
+<p>We use this approach to get a reliable estimate of the of the test RMSE before fitting the model to the actual testing data. It reduces the variability from any single split, meaning that it allows us to show that our results are not due to just one lucky split, and provides a better approximation of how the model will perform on unseen data.</p>
 </div>
 </div>
 </section>
@@ -2532,7 +2535,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>We might use a bootstrap resampling procedure instead of v-fold cross-validation when the dataset is small and we want to make more efficient use of the available data. It is also useful when we want to estimate the variability of the model’s performance, since it produces a distribution of RMSE values rather than a single average.</p>
 </div>
 </div>
 </section>
@@ -2549,7 +2552,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>Model tuning is the process of selecting the best values for a model’s hyperparameters by evaluating its performance across different combinations. We use it to improve model performance, since the choice of hyperparameters can significantly affect how well the model fits to the data and performs on unseen data.</p>
 </div>
 </div>
 </section>
@@ -2566,7 +2569,10 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<ul>
+<li>Root Mean Squared Error (RMSE): Measures the average size of prediction errors, with larger errors penalized more heavily. Lower RMSE indicates better model performance.</li>
+<li>Mean Absolute Error (MAE): Measures the average absolute difference between predicted and actual values.</li>
+</ul>
 </div>
 </div>
 <p>What are two common performance metrics when dealing with a classification ML problem?</p>
@@ -2580,7 +2586,10 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<ul>
+<li>Accuracy: The proportion of correct predictions out of all observations. It is easy to interpret but can be misleading when classes are imbalanced.</li>
+<li>ROC AUC: Measures how well the model distinguishes between classes across different thresholds. It is especially useful when dealing with imbalanced datasets.</li>
+</ul>
 </div>
 </div>
 </section>
@@ -2601,7 +2610,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>This question is inferential. The goal is to understand whether the number of service calls has an impact on the likelihood of churn.</p>
 </div>
 </div>
 <ol start="2" type="1">
@@ -2617,7 +2626,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>YOUR SOLUTION HERE</p>
+<p>This question is predictive. The goal is to estimate the probability that a customer will churn in the next month using available features and the goal is accurately predicting the outcome for each customer.</p>
 </div>
 </div>
 </section>
